@@ -1,0 +1,31 @@
+{% extends 'quiz/base.html' %}
+{% load static %}
+
+{% block scripts %}
+	<script src="{% static 'quiz/js/question.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}
+{{ quiz.quiz_title }}
+{% endblock %}
+
+{% block page-title %}
+{{ quiz.quiz_title }}
+{% endblock %}
+
+{% block content %}
+
+<div>
+	<h3> <span class=" time-left">00:00</span></h3>
+</div>
+<br>
+<a href="{% url 'quiz:home_view' %}" button class="btn btn-light mt-3 mb-3">back</a>
+<div id="alert-box"></div>
+
+<form id="quiz-form" class="mt-3 mb-3">
+	{% csrf_token %}
+	<div id="quiz-box"></div>
+	<button type="submit" class="btn btn-info mt-3">save</button>
+</form>
+
+{% endblock %}
