@@ -1,0 +1,19 @@
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image List</title>
+</head>
+<body>
+    <h1>Image List</h1>
+    <ul>
+        {% for image in images %}
+        <li>
+            <h2>{{ image.name }}</h2>
+            <img src="data:image/jpeg;base64,{{ image.image_data|b64encode }}" alt="{{ image.name }}">
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Quizzes</title>
+    <style>
+.main
+{
+    background-color: #1C5AFF;
+    width: 100%;
+    height: 100%;
+}
+.T
+{
+    width: 200px;
+    height: 300px;
+    margin-left: 44%;
+    margin-right: 50%;
+    margin-bottom: 53%;
+    padding-top: 11%;
+    font-size: 70px;
+    color: black;
+    font-family: arial;
+    font-weight: bold;
+}
+.ex_text
+{
+    width: 600px;
+    height: 90px;
+    font-size: 27px;
+    color: #FDE7E7;
+    justify-content: center;
+    text-align: center;
+    margin-left: -210px;
+}
+.figures
+{
+    margin-top: -630px;
+}
+.square
+{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    margin-top: 690px;
+    margin-left: 140px;
+    border-width: 5px;
+    border-color: #F5936A;
+    border-style: solid;
+    transform: rotate(45deg);
+}
+.circle
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: -400px;
+    margin-left: 110px;
+    border-width: 5px;
+    border-color: #F5936A;
+    border-style: solid;
+}
+.round-square
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    background-color: white;
+    margin-top: 190px;
+    margin-left: 400px;
+    border-width: 5px;
+    border-color: #F5936A;
+    border-style: solid;
+    transform: rotate(45deg);
+}
+.tests
+{
+    color: orange;
+    font-weight: bold;
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 19px;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.2s;
+}
+.line
+{
+    position: absolute;
+    display: block;
+}
+#top
+{
+    top: 48%;
+    left: 39%;
+    width: 10%;
+    height: 2px;
+    background: radial-gradient(circle at center, transparent, orange);
+}
+.tests:hover #top
+{
+    left: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+#bottom
+{
+    top: 43%;
+    right: 44%;
+    width: 10%;
+    height: 2px;
+    background: radial-gradient(circle at center, transparent, orange);
+}
+.tests:hover #bottom
+{
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+    </style>
+</head>
+<body>
+
+            <div class="main">
+                {% block quiz_list_content %}
+                <div class="T">TYM
+                    <div class = "ex_text">Создавай свои карточки для изучения иностранных слов и используй готовые</div>
+                    <a class="tests" href="quiz/1/">
+                        <span class="line" id="top"></span>
+                        <span class="line" id="bottom"></span>
+                        К тестам
+                    </a>
+                </div>
+                {% endblock quiz_list_content %}
+                <div class = "figures">
+                    <div class = "square"></div>
+                    <div class = "circle"></div>
+                    <div class = "round-square"></div>
+                </div>
+            </div>
+
+</body>
+</html>

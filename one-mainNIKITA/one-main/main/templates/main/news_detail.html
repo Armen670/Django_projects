@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <h1 class="list-group-item active text-center text-white">{{ news.title }}</h1>
+    <div class="list-group-item list-group-item-action list-group-item-warning">
+        <h5 class="list-group-item-heading text-center text-info">{{ news.author.username }} [{{ news.created_date }}]</h5>
+        <h5 class="overflow-hidden text-dark">{{ news.content }}</h5>
+    </div><br>
+
+    <a href="{% url 'news_list' %}">Back to News List</a>
+{% endblock %}
+
+
+

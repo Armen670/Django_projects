@@ -1,0 +1,37 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}
+    Order #{{ order.pk }}
+{% endblock %}
+{% block body %}
+<h1>
+    Order <strong>{{ order.name}}</strong>
+</h1>
+<div>
+    <ul>
+            <li><a>Primary key: <code>{{ order.pk }}</code></a></li>
+            <li><p> Promocode: <code>{{ order.promocode }}</code></p></li>
+            <li><p> Address: <code>{{ order.delivery_addres }}</code></p></li>
+            <li><p> Date 0f register: <code>{{ order.created_at }}</code></p></li>
+            <li><p> Products included:
+                {% if order.products.all %}
+                    <div id = "div3"><ol>
+                      {% for product in order.products.all %}<li><ul>
+                            <li>Name : {{ product.name}}</li>
+                            <li>Description : {{ product.desc}}</li>
+                            <li>Price : {{ product.price}}</li>
+                            <li>Category : {{ product.category}}</li>
+                            <li>Brand : {{ product.brand}}</li>
+                            <li>Country of manufacture : {{ product.country_manuf}}</li>
+                            <li>Archived : {{ product.archived}}</li></ul></li><br/>
+                      {% endfor %}
+            </ol></div>
+                {%else %}
+                <code> There is no information to upload </code>
+                {% endif%}
+    </ul>
+</div>
+<div>
+    <a href="{% url 'shop:order_list' %}"> Back to order list</a>
+</div>
+{% endblock %}

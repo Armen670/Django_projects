@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <ul>
+    <div class="list-group">
+      <h1 class="list-group-item active text-center text-white">Rooms</h1>
+      {% for room in rooms %}
+       <a href="{% url 'main:room_detail' room.id %}" class="list-group-item list-group-item-action list-group-item-warning text-secondary text-center"><h5>{{ room.title }}</h5></a>
+      {% endfor %}
+    </div>
+  </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!-- shop/templates/profile.html -->
+{% extends 'base.html' %}
+
+{% block title %}Profile - My Shop{% endblock %}
+
+{% block content %}
+    <h2>Ваш профиль</h2>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <a href="{% url 'change_password' %}" class="btn btn-primary">Изменить пароль</a>
+    <a href="{% url 'order_history' %}" class="btn btn-info">История заказов</a>
+    <a href="{% url 'home' %}" class="btn btn-secondary">На главную</a>
+    <a href="{% url 'logout' %}" class="btn btn-danger">Выход</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1 class="list-group-item active text-center text-white">{{ room.title }}</h1>
+{% for post in posts %}
+
+      <div class="list-group-item list-group-item-action list-group-item-warning">
+        <h5 class="list-group-item-heading text-center text-info">{{ post.author.username }} [{{ post.created_date }}]</h5>
+        <h5 class="overflow-hidden text-dark">{{ post.content }}</h5>
+      </div>
+
+{% endfor %}
+{% if user.is_authenticated %}
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Post</button>
+    </form>
+  {% else %}
+    <p>You need to <a href="{% url 'login' %}">log in</a> to post.</p>
+  {% endif %}
+
+{% endblock %}

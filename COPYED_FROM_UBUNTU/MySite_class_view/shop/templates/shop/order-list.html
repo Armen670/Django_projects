@@ -1,0 +1,46 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>
+        Order list
+    </title>
+{% endblock %}
+{% block body%}
+<p>
+    Order by {% firstof order.user.first_name order.user.username %}
+</p>
+<h1>Order List:</h1>
+{% if orders %}
+    <ol>
+    {% for order in orders %}
+        <li>
+        <div {% if forloop.counter0|divisibleby:"2" == True %} id = "div1" {% else %} id ="div2" {% endif %} >
+            <ul>
+            <li><a href="{% url 'shop:order_details' pk=order.pk %}"  > Primary key: <code>{{ order.pk }}</code></a></li>
+            <li><p> Promocode: <code>{{ order.promocode }}</code></p></li>
+            <li><p> Address: <code>{{ order.delivery_addres }}</code></p></li>
+            <li><p> Date 0f register: <code>{{ order.created_at }}</code></p></li>
+            <li><p> Products included:
+                {% if order.products.all %}
+                    <div id = "div3">
+                There is {{ order.products.all|length }} products in list
+            </div>
+                {%else %}
+                <code> There is no information to upload </code>
+                {% endif%}
+                </p></li>
+            </ul>
+        </div>
+        </li>
+    {%  endfor %}
+    </ol>
+{% else %}
+    <h3> No orders :(</h3>
+{% endif %}
+<div><a href="{% url 'shop:product_create'%}">
+    Create a new Product
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quiz_list</title>
+</head>
+<body>
+    <ul>
+    {% for quiz in quizzes %}
+        <li>
+            <a href="{% url 'victorine:quiz_detail' quiz_id=quiz.pk %}" >Name : {{ quiz.name }}</a></li>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

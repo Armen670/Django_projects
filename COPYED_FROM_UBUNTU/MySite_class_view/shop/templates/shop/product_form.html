@@ -1,0 +1,20 @@
+{% extends 'shop/base.html'%}
+<meta charset="UTF-8">
+<title>
+    Create Product
+</title>
+{% block body %}
+<h1>Create a new product</h1>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" >Create</button>
+    </form>
+</div>
+<div>
+    <a href="{% url 'shop:product_list' %}">
+        Back to product list
+    </a>
+</div>
+{% endblock %}
